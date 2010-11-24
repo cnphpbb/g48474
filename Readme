@@ -1,1 +1,37 @@
-test!!!
+表单验证插件for jQuery --- jquery.validity.js  
+
+VERSION 1.8
+
+本插件是基于 ez validatoV1.1 基础的修改版本 本人只是看到这个插件不错 就下载下来测试后并做了修改
+
+1。不需要编写 JavaScript 代码，只要按手册约定给表单元素设置好相关属性，即可实现自动验证。
+2。 目前支持以下条件验证:
+不能为空      require
+电子邮件地址    email
+电话号码(支持分机号)        phone
+手机号码      mobile
+url 地址       url
+身份证号码     idCard
+货币     currency
+正整数     number
+邮编     zip
+IP 地址     ip
+QQ 号码(新版的 QQ 帐号可使用 Email, 建议使用正则自定义验证)      qq
+正负整数      integer
+小数     double
+英文字母      english
+纯汉字      chinese
+用户名 ( 数字及字母组合的字符串 )      userName
+安全字符串(不能包含 ! # &lt; &gt; ? * $ + - =@ % . * { } ( ) | \ / ~ ^ 等字符的串)      isSafe
+输入长度限制(即输入长度必须在一定范围内)       limit / limitB
+日期      date
+密码重复匹配      repeat
+整数或小数值必须在一定范围内(比如年龄必须在 18 至 60 岁之间)      range
+数值比较 (比如年龄必须大于 18, 但没有上限 / 至多购买 100 件等等,不能为 0, 必须为 1 等等,相当于只有一
+边范围的)       compare
+复选框必须选中 m 到 n 个      group
+下拉框必须选中       compare/require
+Ajax 服务器端检验     ajax
+自定义正则表达式     custom
+多条件组合验证        require|limit
+3 兼容 IE6/IE7/IE8/FireFox/Safari/Opera 主流浏览器
