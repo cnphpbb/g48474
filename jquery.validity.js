@@ -1,6 +1,8 @@
 /**
- *  form validity
- *	@version 1.8
+ * form validity
+ *
+ * @author cnphpbb@hotmail.com
+ * @version 1.8
  */
 var Common = new Object();
 Common.trim = function(str){
