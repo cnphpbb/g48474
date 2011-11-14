@@ -1,6 +1,10 @@
 表单验证插件for jQuery --- jquery.validity.js  
+更新日志:
+VERSION 2.1 [2011-11-14]
+jquery version 1.6.0 以上版本
 
-VERSION 1.8
+VERSION 1.8 [2009-10-04]
+jquery version 1.4.4 以下版本
 
 本插件是基于 ez validatoV1.1 基础的修改版本 本人只是看到这个插件不错 就下载下来测试后并做了修改
 
