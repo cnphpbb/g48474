@@ -1,6 +1,6 @@
 /**
  *  form validity
- *  @version 2.2
+ *  @version 2.4
  */
 var Common = new Object();
 Common.trim = function(str){
@@ -159,7 +159,7 @@ validity={
     mustChecked : function(){
         var tagName=this['element'].attr('name');
         var f=this['element'].parents('form');
-        var n=f.find('input[name="'+tagName+'"][checked]').length;
+        var n=f.find('input[name="'+tagName+'"]:checked').length;
         var count = f.find('input[name="'+tagName+'"]').length;
         var minval=this['element'].attr('min') || 1;
         var maxval=this['element'].attr('max') || count;
@@ -192,13 +192,7 @@ validity={
         }
 
         var send_data = name+"="+encodeURI(val);
-        /*
-		if(url.indexOf('?')>-1){
-			url = url+"&"+name+"="+escape(val);
-		} else {
-			url = url+'?'+name+"="+escape(val);
-		}
-		*/
+
         validity.removeErr(this['element']);
         this['element'].parent('*').find('.'+validity.errorTip+',.'+validity.validTip).remove();
         var s = $.ajax({
@@ -242,12 +236,14 @@ validity.showErr=function (element, errindex){
     var str_errmsg=element.attr('msg') ||'unkonwn';
     var arr_errmsg = str_errmsg.split('|');
     var errmsg = arr_errmsg[errindex] ? arr_errmsg[errindex]: arr_errmsg[0];
-    var msgid= jQuery('#'+element.attr('msgid'));
+    var msgid = jQuery('#'+element.attr('msgid'));
     var type=element.attr('type');
     (type!='checkbox' && type!='radio' && element.addClass(this['errorinput']));
-
-    element.parent('*').find('.'+this['errorTip']).remove();
-
+    if(msgid.length > 0){
+        element.parent('*').find('.'+this['errorTip']).removeClass("form-info "+this['errorTip']).html("");
+    }else{
+        element.parent('*').find('.'+this['errorTip']).remove();
+    }
     if(msgid.length>0) {
         msgid.removeClass(this['validTip']).addClass("form-info "+this['errorTip']).html(errmsg);
     } else {
@@ -258,7 +254,12 @@ validity.showErr=function (element, errindex){
 
 validity.removeErr =  function(element){
     element.removeClass(this['errorinput']);
-    element.parent('*').find('.form-info').remove();
+    var msgid = jQuery('#'+element.attr('msgid'));
+    if(msgid.length==0){
+        element.parent('*').find('.form-info').remove();
+    }else{
+        element.parent('*').find('.form-info').removeClass("form-info "+this['errorTip']).html("");
+    }
 }
 
 validity.checkajax = function(element, datatype, errindex) {
@@ -325,11 +326,11 @@ validity.check=function(obj){
             validity.showErr(obj, index);
             obj.removeClass(validity.errorinput);
             var msgid = jQuery('#'+obj.attr('msgid'));
-            if(msgid.length>0) {
+            if(msgid.length > 0) {
                 if(is_suc){
-                    msgid.removeClass(validity.errorTip).addClass(validity.validTip).html("正确");
+                    msgid.removeClass(validity.errorTip).addClass(validity.validTip).text("正确");
                 }else{
-                    msgid.removeClass(validity.errorTip).html("");
+                    msgid.removeClass(validity.errorTip).text("");
                 }
             } else {
                 obj.parent('*').find('.'+validity.errorTip+',.'+validity.validTip).remove();
