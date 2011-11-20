@@ -1,6 +1,6 @@
 /**
  *  form validity
- *  @version 2.4
+ *  @version 2.5
  */
 var Common = new Object();
 Common.trim = function(str){
