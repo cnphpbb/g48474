@@ -1,6 +1,6 @@
 /**
  *  form validity
- *  @version 2.1
+ *  @version 2.2
  */
 var Common = new Object();
 Common.trim = function(str){
@@ -134,7 +134,7 @@ validity={
 
     checkRepeat:function(value){
         var to = this['element'].attr('to');
-        return value==jQuery('input[id="'+to+'"]').eq(0).val();
+        return value==jQuery('input[name="'+to+'"]').eq(0).val();
     },
 
     checkRange : function(value){
