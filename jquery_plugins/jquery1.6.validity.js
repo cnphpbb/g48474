@@ -1,6 +1,6 @@
 /**
  *  form validity
- *  @version 2.5
+ *  @version 2011-11-25
  */
 var Common = new Object();
 Common.trim = function(str){
@@ -27,7 +27,7 @@ validity={
     require : /[^(\s*)|(\s*)]/,
     email : /^[a-z0-9]+([a-z0-9\+_\-\.]|[a-z0-9])*@([a-z0-9\-]+\.)+[a-z]{2,6}$/i,
     phone : /^((\(\d{2,3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6,7}(\-\d{1,4})?$/,
-    mobile : /^(13[0-9]|15[0-9]|18[8|9])\d{4,8}$/,
+    mobile : /^[0]?(1[3|4|5|8|9][0-9]\d{4,8})$/,
     url : /^http:\/\/[A-Za-z0-9-]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/,
     urlnohttp : /^[A-Za-z0-9-]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/,
     idCard : "this.isIdCard(value)",
@@ -192,7 +192,13 @@ validity={
         }
 
         var send_data = name+"="+encodeURI(val);
-
+        /*
+		if(url.indexOf('?')>-1){
+			url = url+"&"+name+"="+escape(val);
+		} else {
+			url = url+'?'+name+"="+escape(val);
+		}
+		*/
         validity.removeErr(this['element']);
         this['element'].parent('*').find('.'+validity.errorTip+',.'+validity.validTip).remove();
         var s = $.ajax({
@@ -326,11 +332,11 @@ validity.check=function(obj){
             validity.showErr(obj, index);
             obj.removeClass(validity.errorinput);
             var msgid = jQuery('#'+obj.attr('msgid'));
-            if(msgid.length > 0) {
+            if(msgid.length>0) {
                 if(is_suc){
-                    msgid.removeClass(validity.errorTip).addClass(validity.validTip).text("正确");
+                    msgid.removeClass(validity.errorTip).addClass(validity.validTip).html("正确");
                 }else{
-                    msgid.removeClass(validity.errorTip).text("");
+                    msgid.removeClass(validity.errorTip).html("");
                 }
             } else {
                 obj.parent('*').find('.'+validity.errorTip+',.'+validity.validTip).remove();
@@ -358,7 +364,7 @@ jQuery.fn.check_form = function(){
             if(validity.check(jQuery(this))==false){
                 isValid  = false;
                 errIndex[n++]=i;
-            };
+            }
         });
 
         if(isValid==false){
@@ -400,91 +406,31 @@ jQuery.fn.check_submit = function(){
     });
 }
 
-var onFormSubmit = function(pForm){
-    var result = true;
-    $(pForm).find("input[valid],select[valid]").each(function(i){
-        if(!checkFun($(this))){
-            result = false;
-        }
-    });
-    return result;
-}
-
-var bindEvent = function(pForm){
-    $(pForm).find("input[valid],select[valid]").each(function(i){
-        var inputBox = $(this);
-        inputBox.bind("focus",function(){
-            var box = $(this);
-            showInfoMsg(box);
-        });
-        inputBox.bind("blur",function(){
-            var box = $(this);
-            checkFun(box);
-        });
+jQuery.fn.blurEven=function(){
+    this.addClass("validity");
+    var form=jQuery(this);
+    var elements = form.find(":input[require]");
+    elements.blur(function(index){
+        return validity.check($(this));
     });
 }
-
-var checkFun = function(box){
-    var validArr = box.attr("valid").split('|');
-    var errorNum = 0;
-    var len = validArr.length;
-    for(var i=0; i < len; i++){
-        var item = validArr[i];
-        var v = box.val();
-        if(item == "long"){
-            var min_count = (Number(box.attr("min")) || -1);
-            var max_count = (Number(box.attr("max")) || -1);
-            if(min_count < 0 && max_count < 0){
-                continue;
-            }
-            else{
-                if(!(v.length >= min_count && v.length <= max_count)){
-                    showErrorMsg(box);
-                    return false;
-                }
-            }
+//针对AJAX提交返回一个bool值
+jQuery.fn.checkForm = function(){
+    this.addClass("validity");
+    var form=jQuery(this);
+    var elements = form.find(":input[require]");
+    var isValid = true;
+    var errIndex= new Array();
+    var n=0;
+    elements.each(function(i){
+        if(validity.check(jQuery(this))==false){
+            isValid  = false;
+            errIndex[n++]=i;
         }
-        else{
-            if(!validity[validArr[i]].test(v)){
-                errorNum++;
-            }
-        }
-    }
-    if(errorNum == len){
-        showErrorMsg(box);
+    });
+    if(isValid==false){
+        elements.eq(errIndex[0]).focus().select();
         return false;
     }
-    else{
-        showSuccessMsg(box);
-        return true;
-    }
-}
-
-var showErrorMsg = function(box){
-    var msgBox = $("#"+box.attr("msg"));
-    msgBox.html(box.attr("error"));
-    msgBox.addClass("error-info");
-    msgBox.removeClass("suc-info");
-    msgBox.removeClass("msg-info");
-    msgBox.show();
-}
-
-var showSuccessMsg = function(box){
-    var msgBox = $("#"+box.attr("msg"));
-    msgBox.html("成功");
-    msgBox.removeClass("error-info");
-    msgBox.addClass("suc-info");
-    msgBox.removeClass("msg-info");
-    msgBox.show();
-}
-
-var showInfoMsg = function(box){
-    var msgBox = $("#"+box.attr("msg"));
-    if(box.attr("tips")){
-        msgBox.html(box.attr("tips"));
-        msgBox.removeClass("error-info");
-        msgBox.removeClass("suc-info");
-        msgBox.addClass("msg-info");
-        msgBox.show();
-    }
+    return true;
 }
