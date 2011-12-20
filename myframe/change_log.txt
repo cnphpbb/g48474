@@ -1,0 +1,6 @@
+
+
+2:31 2011-12-21
+1. 完成 smarty-2.X 到 smarty-3.1.7的升级
+2. 修改 /library/cls_template.php 支持 smarty-3.1.7
+
