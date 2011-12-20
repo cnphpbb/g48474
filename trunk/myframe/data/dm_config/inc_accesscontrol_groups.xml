@@ -1,0 +1,48 @@
+<pools:admin name="管理员" allowpool="member" auttype="session" login_control="?ct=index&ac=login">
+
+    <!-- //公开的控制器，不需登录就能访问 -->
+    <ctl:public>index-login,index-loginout</ctl:public>
+
+    <!-- //保护的控制器，当前池会员登录后都能访问 -->
+    <ctl:protected>index-index,index-adminmsg,users-mypurview</ctl:protected>
+
+    <!-- //私有控制器，只有特定组才能访问 -->
+    <ctl:private>
+        <admin name="管理员">*</admin>
+
+    </ctl:private>
+
+</pools:admin>
+
+<pools:member name="网站会员" allowpool="" auttype="cookie" login_control="?ct=index&ac=login">
+
+    <!-- //公开的控制器，不需登录就能访问 -->
+    <ctl:public>index-login,index-loginout,index-register,index-get_password,index-validate_image,index-test_user_name,index-test_email,index-passwdfind, company-showimg</ctl:public>
+
+    <!-- //保护的控制器，当前池会员登录后都能访问 -->
+    <ctl:protected>index-*, resume-*, user-*, member-*, apply-*, mail-*,trains-*, zone-*, company-index, company-morecompany, company-showimg,company-index,company-morecompany,company-viewJobs,company-addUserMessage,company-getUserReplyById,company-getMessageList, company-searchJobs, company-moreFamousCompany,company-searchCompany,company-companyInfo,company-followJobs,company-followCompany,company-applyJobs,company-addUserReply,company-getface2</ctl:protected>
+
+    <!-- //私有控制器，只有特定组才能访问 -->
+    <ctl:private>
+        <user name="求职"></user>
+        <work name="招聘">company-addJobs,company-delJob,company-updateJobs, company-manageJobs, company-addCompanyInfo, company-checkApplyResume,company-applymanage,company-getJobJsonById,company-viewCompanyInfo,company-viewJobsResume,projects-*</work>
+        <comapny name="企业HR"></comapny>
+    </ctl:private>
+
+</pools:member>
+
+<pools:company name="企业会员" allowpool="" auttype="cookie" login_control="?ct=index&ac=login">
+
+    <!-- //公开的控制器，不需登录就能访问 -->
+    <ctl:public>*</ctl:public>
+
+    <!-- //保护的控制器，当前池会员登录后都能访问 -->
+    <ctl:protected>index-index</ctl:protected>
+
+    <!-- //私有控制器，只有特定组才能访问 -->
+    <ctl:private>
+        <pub name="企业">*</pub>
+    </ctl:private>
+
+</pools:company>
+
