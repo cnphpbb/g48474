@@ -1,4 +1,12 @@
-
+5:31 2011-12-23
+r17
+1.增加 cls_txt_sql 类 及 cls_txt_sql_core 操作类 
+2.增加 txt_db 目录
+3.增加 txtsql 目录 及 txtsql.MYI 数据库
+4.增加 frame 默认模板  CSS &  images & JAVASRCIPT
+---------------------
+r16
+删除 CACHE_DB  cls_cache_db 类
 
 2:31 2011-12-21
 1. 完成 smarty-2.X 到 smarty-3.1.7的升级
