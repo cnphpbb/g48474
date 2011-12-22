@@ -14,19 +14,11 @@ if (!defined('PATH_ROOT')) {
  */
 class ctl_index {
 
+    /**
+     * 首页
+     */
     public function index() {
-        echo "这个是没使用Smarty模板的输出!!";
-    }
-
-    public function test() {
-        $form = request('form');
-        $even = request("even");
-        $tpl_name = "test/test.tpl";
-        $form_action = empty($even) ? "?ac=test&even=save" : "?ac=test";
-        if($even == "save"){
-            debugVar($form);
-        }
-        cls_template::assign("form_action", $form_action);
+        $tpl_name = "demo/index.tpl";
         cls_template::display($tpl_name);
     }
 

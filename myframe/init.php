@@ -1,6 +1,6 @@
 <?php
 // 严格开发模式
-//error_reporting( E_ALL );
+error_reporting( E_ALL );
 
 //强制要求对gpc变量进行转义处理
 if ( !ini_get('magic_quotes_gpc') )

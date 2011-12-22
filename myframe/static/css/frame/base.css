@@ -1,0 +1,163 @@
+@charset "utf-8";
+body {
+    margin: 0;
+    font-family: arial, sans-serif;
+    background: url(../images/frame/sidebar.gif);
+}
+.wrap {
+    padding-top: 35px;
+}
+
+form {
+    margin: 0;
+}
+
+dl, dt, dd, ul, li, ol, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 100%;
+}
+
+p {
+    margin: 5px 0;
+    line-height: 150%;
+}
+
+img {
+    border: 0;
+}
+
+p, div, input {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+p, div {
+    font-size: 12px;
+}
+.d {
+    color: #CCC;
+}
+.u {
+    font-size: 14px;
+}
+
+a.u2 {
+    color: #09c;
+}
+.l, .l a, #tips a,#com a {
+    color: #36c;
+}
+.l a {
+    padding: 0 12px;
+    text-decoration: underline;
+}
+.red {
+    color: #F00;
+}
+
+.page a {
+    padding:0 2px 0 2px;
+}
+
+table {
+    clear:both;
+}
+
+.tdip {
+    width:96%;
+    border:none;
+    border-bottom:1px dashed #ccc;
+}
+
+td { text-align:left; }
+
+td.title {
+    font-weight:bold;
+    text-align:right;
+    height:28px;
+    line-height:20px;
+    width:25%;
+}
+
+td.title span {
+    font-weight:normal;
+    color:#666;
+}
+
+td.item {
+    width:20%;
+    text-align:left;
+}
+
+td .txts {
+    width:50%;
+}
+
+td .txtnumber {
+    width:100px;
+}
+
+td .txts3 {
+    width:30%;
+}
+
+td .txt {
+    width:80%;
+}
+
+td .txtarea {
+    width:80%;
+    height:120px;
+}
+
+textarea {
+    font-size:12px;
+    line-height:150%;
+}
+
+.btn {
+    background:url(../images/frame/button_bg.gif);
+    border:1px solid #878A1D;
+    padding:3px 15px 3px 15px;
+    font-size:12px;
+    color:#3E3D06;
+    cursor:pointer;
+}
+
+.reg_item {
+    width:800px;
+    margin:auto;
+    margin-bottom:10px;
+    border-bottom:1px dashed #666;
+    padding-bottom:8px;
+}
+
+.reg_item_submit {
+    width:800px;
+    margin:auto;
+    margin-bottom:10px;
+    padding-left:200px;
+    line-height:36px;
+}
+
+.reg_title {
+    font-size:14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-bottom:6px;
+    border-bottom:1px dashed #666;
+}
+
+.reg_info {
+   color:red;
+}
+
+.hide {
+    display:none;
+}
+
+.main {
+    width:900px;
+    margin:auto;
+}
