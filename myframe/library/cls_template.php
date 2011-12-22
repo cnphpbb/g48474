@@ -43,32 +43,35 @@ class cls_template
         }
         return self::$instance;
     }
+
     protected static function config ()
     {
         $instance = self::init();
         $instance->assign('URL_STATIC', URL.'/static');
         $instance->assign('URL', URL);
     }
+
     public static function assign ($tpl_var, $value)
     {
         $instance = self::init();
         $instance->assign($tpl_var, $value);
     }
-    public static function display ($tpl, $is_debug_mt=true)
+
+    public static function display ($tpl, $is_debug_mt=true, $cache_id = null, $compile_id = null, $parent = null)
     {
         $instance = self::init();
         $app_tpldir = empty(self::$appname) ? '' : self::$appname.'/';
-        $instance->display($app_tpldir.$tpl);
+        $instance->display($app_tpldir.$tpl,$cache_id, $compile_id, $parent);
         if( $is_debug_mt && PHP_SAPI !== 'cli' )
         {
             debug_hanlde_xhprof();
         }
     }
 
-    public static function fetch($tpl)
+    public static function fetch($tpl, $cache_id = null, $compile_id = null, $display = false)
     {
         $instance = self::init();
-        return $instance->fetch($tpl);
+        return $instance->fetch($tpl, $cache_id, $compile_id, $display);
     }
     /**
      * 增加模板中使用的CSS
