@@ -1,0 +1,564 @@
+body{
+    background:#fff;
+    color:#000;
+    font:12px/1.5 verdana,arial,sans-serif;
+}
+a{
+    color:#36c;
+    text-decoration:none;
+}
+a:hover{
+    color:#fff;
+    background:#36c;
+    text-decoration:underline;
+}
+
+/*common class*/
+.left-bar{
+    float:left;
+    margin-right:5px;
+    width:670px;
+}
+.right-bar{
+    float:left;
+    width:275px;
+}
+
+.notice{
+    background:#fef7db url(../../images/frame/spr_user.png) no-repeat -925px -157px;
+    border:1px #fbecb3 solid;
+    height:28px;
+    line-height:28px;
+    padding-left:28px;
+}
+.msg-box{
+    border:1px #cfdae4 solid;
+}
+.msg-box .box-header{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x 0 -114px;
+    height:28px;
+    line-height:28px;
+    overflow:hidden;
+    padding:0 5px;
+}
+.msg-box ul.simple-ul{
+    height:132px;
+    *height:145px;
+    overflow:hidden;
+}
+.msg-box li{
+    border-bottom:1px #e3e6eb solid;
+    color:#999;
+    height:26px;
+    line-height:26px;
+    overflow:hidden;
+    padding:0 5px;
+    *zoom:1;
+}
+.even{
+    background:#fafcff;
+}
+.box-header h4{
+    font-size:12px;
+}
+.box-header h4,.msg-box li p{
+    float:left;
+}
+.box-header .sub-link,.msg-box li span{
+    float:right;
+}
+.box-header .sub-link{
+    line-height:1.5;
+    margin-top:5px;
+}
+
+.tab-bar{
+    float:left;
+}
+.tab-bar li{
+    background:url(../../images/frame/spr_user.png) no-repeat -796px -97px;
+    color:#666;
+    cursor:pointer;
+    float:left;
+    height:23px;
+    line-height:23px;
+    margin:4px 3px 0 0;
+    padding:0 10px;
+    overflow:hidden;
+    position:relative;
+}
+.tab-bar li b{
+    background:url(../../images/frame/spr_user.png) no-repeat -921px -97px;
+    height:23px;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    top:0;
+    width:3px;
+}
+.tab-bar li.current{
+    background:url(../../images/frame/spr_user.png) no-repeat -796px -68px;
+    font-size:14px;
+    font-weight:bold;
+    height:27px;
+    line-height:27px;
+    margin:0 3px 0 0;
+    top:1px;
+}
+.tab-bar li.current b{
+    background:url(../../images/frame/spr_user.png) no-repeat -921px -68px;
+    height:27px;
+}
+.list{
+    border:1px #add2fe solid;
+    border-bottom:0;
+    margin:0 auto;
+    *margin:0;
+    table-layout:fixed;
+    width:948px;
+}
+.list tr td{
+    border-bottom:1px #e3e6eb solid;
+}
+tr.list-stat{
+    background:#eee;
+}
+.list .thead{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x 0 -142px;
+    height:28px;
+}
+.list .thead th{
+    border-bottom:1px #aec7e5 solid;
+    color:#666;
+    font-size:12px;
+    font-weight:normal;
+}
+.list td,.list th{
+    overflow:hidden;
+    padding:4px 10px;
+    text-align:left;
+    vertical-align:middle;
+    white-space:nowrap;
+}
+.list th{
+    line-height:28px;
+    padding:0 10px;
+}
+.list td.no-record{
+    text-align:center;
+    padding:80px 0;
+    vertical-align:middle;
+    font-size:14px;
+    font-weight:bold;
+    color:#666;
+}
+.ico-info{
+    background:url(../../images/frame/spr_user.png) no-repeat -683px -7px;
+    width:32px;
+    height:32px;
+    vertical-align:middle;
+}
+.date-rang{
+    float:right;
+}
+.date-rang .text{
+    padding:3px 2px;
+    *padding:4px 2px 2px;
+    width:100px;
+}
+button.search{
+    background:url(../../images/frame/spr_user.png) no-repeat -683px -145px;
+    border:none;
+    cursor:pointer;
+    float:right;
+    height:25px;
+    margin-left:3px;
+    width:64px;
+}
+button.search span{
+    display:none;
+}
+.page{
+    background:#efefef;
+    border:1px #add2fe solid;
+    border-top:0;
+    height:28px;
+    line-height:28px;
+    padding:0 10px;
+    text-align:right;
+    margin:0 auto;
+    *margin:0;
+    width:927px;
+    *width:926px;
+}
+.ass{
+    background:#fef7db;
+    border:1px #fbecb3 solid;
+    margin-bottom:10px;
+    padding:10px;
+}
+.ass p{
+    color:#666;
+    padding:5px 0;
+}
+.ass h4{
+    font-size:12px;
+}
+
+.form{
+    padding:20px 20px 10px;
+}
+.form div{
+    overflow:hidden;
+    padding:10px 0;
+    width:100%;
+}
+.form label.col{
+    float:left;
+    margin-top:3px;
+    width:270px;
+}
+.form .text{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x 0 -35px;
+    border:1px #c9cdd0 solid;
+    float:left;
+    height:20px;
+    margin-right:3px;
+    padding:4px 0 0 0;
+    *height:18px;
+    *padding:6px 0 0 0;
+    width:275px;
+    font-size:12px;
+}
+.form .file{
+    height:24px;
+}
+.form .form-end{
+    padding-left:270px;
+    width:auto;
+}
+.form .form-end input{
+    margin:4px 4px 0 0;
+    *margin:0 4px 0 0;
+}
+.form .form-end label{
+    *margin-top:3px;
+}
+.form .btn-submit{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x 0 -60px;
+    border:1px #f47601 solid;
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+    height:27px;
+    padding:0 10px;
+}
+.form button.disabled{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x 0 -87px;
+    border:1px #888 solid;
+}
+.form div p,.return{
+    border:1px #fff solid;
+    float:left;
+    height:24px;
+    line-height:24px;
+    padding-right:5px;
+}
+.return{
+    float:none;
+}
+.form div p.onshow{
+    color:#999;
+}
+.form div p.onfocus{
+    background:#eef4ff url(../../images/frame/spr_user.png) no-repeat -930px -90px;
+    border:1px #a8c5ee solid;
+    color:#217bc3;
+    padding-left:26px;
+}
+.form div p.oncorrect,.succed{
+    background:#cfeeb2 url(../../images/frame/spr_user.png) no-repeat -930px -123px;
+    border:1px #008000 solid;
+    color:#008000;
+    padding-left:26px;
+}
+.form div p.onerror,.error{
+    background:#ffebe8 url(../../images/frame/spr_user.png) no-repeat -930px -55px;
+    border:1px #d84544 solid;
+    color:#d84544;
+    padding-left:26px;
+}
+.form select.text{
+    height:26px;
+    margin-right:5px;
+    width:120px;
+}
+.form textarea.text{
+    background:#fff;
+    height:150px;
+    width:360px;
+}
+.edit-box{
+    border:1px #aed2ff solid;
+    padding:10px;
+}
+.wait-edit{
+    background:#fef7db;
+    color:#666;
+    font-weight:bold;
+    font-size:14px;
+    text-align:center;
+    padding:30px;
+}
+.ico-wait{
+    background:url(../../images/frame/spr_user.png) no-repeat -798px 0;
+    height:34px;
+    vertical-align:middle;
+    width:29px;
+}
+/*layout*/
+#page,.row,#header,#main,#footer{
+    margin:0 auto;
+    padding:0 5px;
+    width:950px;
+}
+#header{
+    padding:5px;
+}
+#main{
+    _padding-top:5px;
+}
+body > #main{
+    overflow:hidden;
+    padding:5px;
+}
+#footer{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x 0 -170px;
+    border-top:1px #e6e6ef solid;
+    color:#666;
+    clear:both;
+    height:68px;
+    margin-top:10px;
+    overflow:hidden;
+    text-align:center;
+}
+#footer_nav{
+    border-top:1px #fff solid;
+    padding-top:10px;
+}
+
+#logo{
+    float:left;
+}
+#logo span{
+    display:none;
+}
+#logo a{
+    background:url(../../images/frame/logo.png);
+    display:block;
+    height:54px;
+    width:220px;
+    *zoom:1;
+}
+#user_top_bar{
+    color:#999;
+    float:right;
+}
+#user_top_bar strong{
+    color:#000;
+}
+#nav{
+    background:url(../../images/frame/spr_user_repeat.png) repeat-x;
+    height:36px;
+}
+#nav ul{
+    margin:0 auto;
+    padding-top:5px;
+    width:850px;
+}
+#nav li,#nav a{
+    cursor:pointer;
+    float:left;
+    height:31px;
+    line-height:26px;
+}
+#nav li{
+    margin-right:15px;
+}
+#nav li a{
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    width:90px;
+}
+#nav li a:hover{
+    background:url(../../images/frame/spr_user.png) no-repeat -834px -34px;
+    text-decoration:none;
+}
+#nav li.current a,#nav li.current a:hover{
+    color:#000;
+    background:url(../../images/frame/spr_user.png) no-repeat -834px 0;
+}
+#index_notice,#earning,#info_box{
+    margin-bottom:5px;
+}
+#earning{
+    background:url(../../images/frame/spr_user.png) no-repeat;
+    height:150px;
+}
+#earning .earn{
+    color:#666;
+    left:30px;
+    position:relative;
+    top:48px;
+    width:570px;
+}
+#earning em{
+    font-style:normal;
+    font-weight:bold;
+}
+#earning .dail{
+    left:40px;
+    position:relative;
+    top:79px;
+    *top:81px;
+}
+#earning .balan{
+    color:#999;
+    left:260px;
+    position:relative;
+    top:53px;
+    width:270px;
+}
+#earning .balan em{
+    font-weight:normal;
+}
+#info_box ul{
+    padding:15px;
+}
+#info_box li{
+    background:url(../../images/frame/spr_user.png) no-repeat 0 -999em;
+    border:0;
+    color:#666;
+    height:20px;
+    line-height:20px;
+    margin-bottom:5px;
+    padding-left:20px;
+    width:190px;
+}
+#info_box li.name{
+    background-position:-6px -152px;
+}
+#info_box li.name2{
+    background-position:-228px -150px;
+}
+#info_box li.lvl{
+    background-position:-4px -173px;
+}
+#info_box li.msg{
+    background-position:-228px -172px;
+    
+}
+#server_box p{
+    color:#333;
+    padding:10px 10px 11px;
+    *padding:13px 10px 14px;
+}
+#server_box .server-time{
+    border-bottom:1px #eee dotted;
+}
+#rang_bar{
+    height:30px;
+}
+#rang_bar2{
+    height:29px;
+    *height:30px;
+}
+.tab-bar{
+    margin-top:2px;
+    *margin-top:3px;
+}
+#wait{
+    background:url(../../images/frame/wait_pic.png) no-repeat center center;
+    height:300px;
+}
+
+#sys_info .no-read{
+    background:url(../../images/frame/spr_user.png) no-repeat -926px 6px;
+    padding-left:24px;
+}
+#sys_info .readed{
+    background:url(../../images/frame/spr_user.png) no-repeat -926px -22px;
+    padding-left:24px;
+}
+#sys_info .content{
+    background:#fef7db;
+    color:#666;
+}
+#code_step_bar{
+    background:url(../../images/frame/spr_user.png) 0 -198px;
+    height:56px;
+    position:relative;
+}
+#code_step_bar p{
+    color:#999;
+    font-size:14px;
+    height:35px;
+    line-height:35px;
+    position:absolute;
+    top:10px;
+}
+#code_step_bar p span{
+    float:left;
+    height:35px;
+    width:34px;
+}
+#code_step_bar p.cur{
+    color:#333;
+}
+#code_step_bar p.code-step-1{
+    left:278px;
+    
+}
+#code_step_bar p.code-step-2{
+    left:499px;
+}
+#code_step_bar p.code-step-3{
+    left:739px;
+}
+#code_step_bar p.code-step-2 span.cur{
+    background:url(../../images/frame/spr_user.png) -683px -56px;
+}
+#code_step_bar p.code-step-3 span.cur{
+    background:url(../../images/frame/spr_user.png) -683px -101px;
+}
+#wait_code{
+    background:url(../../images/frame/wait_pic2.png) no-repeat center center;
+    height:250px;
+}
+#stop_code{
+    background:url(../../images/frame/stop.png) no-repeat center center;
+    height:250px;
+}
+#edit_form{
+    padding:10px 20px;
+}
+#edit_form label.col{
+    width:180px;
+}
+#edit_form div.form-end{
+    padding-left:180px;
+}
+#edit_form div{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+#saft_question_select{
+    width:275px;
+}
+#saft_question_set {
+    clear:left;
+    display:none;
+    margin:5px 5px 0 180px;
+}

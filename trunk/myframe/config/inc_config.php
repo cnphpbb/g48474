@@ -9,6 +9,7 @@ define('PATH_API', PATH_ROOT . '/api');
 define('PATH_DATA', PATH_ROOT . '/data');
 define('PATH_DM_CONFIG', PATH_DATA . '/dm_config');
 define('PATH_UP_TMP',PATH_ROOT.'/temp'); #上传临时文件
+define('PATH_TXTDB_DIR',PATH_DATA.'/txt_db'); 
 
 define('COOKIE_DOMAIN', ''); //正式环境中如果要考虑二级域名问题的应该用 .my.com
 define('URL', 'http://localhost');
@@ -71,6 +72,8 @@ $GLOBALS['config']['write_ables'][] = PATH_DATA.'/backup';
 $GLOBALS['config']['write_ables'][] = PATH_DATA.'/cache';
 $GLOBALS['config']['write_ables'][] = PATH_DATA.'/log';
 $GLOBALS['config']['write_ables'][] = PATH_DATA.'/lurdtmp';
+$GLOBALS['config']['write_ables'][] = PATH_DATA.'/txt_db';
+$GLOBALS['config']['write_ables'][] = PATH_UP_TMP;
 $GLOBALS['config']['write_ables'][] = PATH_CONFIG;
 $GLOBALS['config']['write_ables'][] = PATH_ROOT.$GLOBALS['config']['upload_dir'];
 $GLOBALS['config']['write_ables'][] = PATH_ROOT.'/templates/cache';
