@@ -171,7 +171,6 @@ function am()
 function debugVar()
 {
     header('Content-type:text/html;charset=utf-8');
-    $r = null;
     $args = func_get_args();
     echo '<xmp>', var_dump($args), '</xmp>';
     exit;
